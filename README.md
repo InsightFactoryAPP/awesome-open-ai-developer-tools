@@ -928,6 +928,13 @@ Dependency-free browser calculator for estimating AI model API costs from reques
 
 - **Edge:** Runs locally without API keys, accounts, cookies, analytics, or server-side processing. The tested formula separates cached from uncached input and keeps provider-specific pricing assumptions visible so estimates can be reviewed before a real bill is incurred.
 
+### [OrcaReplay](https://github.com/Continuum-AI-Corp/OrcaReplay)
+`TypeScript` · `Apache-2.0` · 🟢 stable
+
+Records a coding agent's exchange with its model provider and replays the run offline with no model called.
+
+- **Edge:** The other tools here tell you what happened; this one runs it again. Replay serves the recorded turns with no provider contacted and nothing spent, and `--from N --model M` replays a prefix then continues on a different model, so the model is the only variable. Captures at the HTTP boundary rather than through instrumentation — aider, OpenHands and goose from the sections above are covered, along with Claude Code and the Vercel AI SDK. The trace format is specified separately under CC BY 4.0, so a recording outlives the CLI.
+
 ---
 
 ## Speech, Vision & Multimodal
