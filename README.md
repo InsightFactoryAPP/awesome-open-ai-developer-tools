@@ -117,6 +117,15 @@ Extensible autonomous agent from Block, now governed by the Linux Foundation. In
 - **Backends:** Any provider, plus first-class MCP extension support
 - **Edge:** More autonomous than aider — plans and iterates with less hand-holding. Vendor-neutral governance under the Linux Foundation means no rug-pull risk, which matters for tooling you standardize a team on.
 
+### [molt](https://github.com/solvyxtech/molt)
+`TypeScript` · `Apache-2.0` · CLI + desktop · 🟡 active
+
+Coding agent that won't say done on a false claim — verification on disk, receipts for accepts and refusals.
+
+- **Replaces:** Cursor agent mode, Claude Code for teams that need a done-bar outside the model
+- **Backends:** OpenAI-compatible endpoints (Ollama, vLLM, etc.) or Anthropic
+- **Edge:** Acceptance lives in `.molt/done.yml` against real files; accepts and refusals both write hash-chained receipts (`molt verify`). Install via `npm i -g @solvyx/molt` / `npx @solvyx/molt`.
+
 ### [BitFun](https://github.com/GCWing/BitFun)
 `Rust + TypeScript` · `MIT` · Desktop + CLI · 🟡 active
 
