@@ -307,6 +307,16 @@ Self-hosted personal AI that searches your notes, documents, and the web; reacha
 
 ---
 
+### [OpenAmer](https://github.com/openamer/openamer)
+`Python` · `Apache-2.0` · 🟡 active
+
+Windows-native agent runtime that operates the real desktop (filesystem, terminal, GUI, browser over the Chrome DevTools Protocol) and runs entirely locally, with persistent memory, reusable skills, and a self-improvement loop.
+
+- **Replaces:** Operator-style cloud computer-use, Claude Desktop
+- **Backends:** Any OpenAI-compatible API, Ollama, local models
+- **Edge:** Cognition tools (`think`/`learn`/`remember`/`trigger`/`heartbeat`) run in-process rather than as subprocess hops; a single 10-subsystem heartbeat replaces a pile of individual cron jobs; instances route work to each other peer-to-peer over an A2A mesh, with every action recorded in an outcome ledger so claims are checkable.
+
+
 ## Agent Sandboxes & Browser Control
 
 Where agent-generated code actually runs, and how agents touch the web.
