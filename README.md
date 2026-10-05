@@ -831,6 +831,15 @@ Test and evaluate prompts, agents, and RAG systems — plus LLM red teaming and 
 
 - **Edge:** Declarative test cases in YAML that run in CI. Side-by-side model comparison plus adversarial red-teaming in one tool. Local-first — your prompts never leave your machine.
 
+### [Cage](https://github.com/vitalik1921/cage)
+`TypeScript` · `MIT` · CLI + agent hooks · 🟡 active
+
+Deterministic contract harness that links Markdown specs to TypeScript implementations, invariant-linked tests, and review freshness.
+
+- **Replaces:** Manual spec-to-code and test-traceability checklists
+- **Backends:** Claude Code, Codex
+- **Edge:** Parses `*.cage.mdx` specs into TypeScript contract checks, tracks `@invariant`/`@covers` links, and fingerprints spec, code, test, and import material to detect stale reviews. It does not run tests or prove semantic correctness.
+
 ### [agent-qa](https://github.com/vostride/agent-qa)
 `TypeScript` · `FSL-1.1-ALv2` (fair-code; converts to `Apache-2.0`) · CLI, dashboard, MCP · 🟠 experimental
 
