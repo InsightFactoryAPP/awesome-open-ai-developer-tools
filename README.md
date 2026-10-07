@@ -349,6 +349,12 @@ Self-hosted personal AI that searches your notes, documents, and the web; reacha
 - **Replaces:** ChatGPT with memory, Notion AI
 - **Edge:** Indexes *your* corpus locally. Runs fully offline with local models.
 
+### [aiFetchly](https://github.com/robertzengcn/aiFetchly)
+`TypeScript` · `Apache-2.0` · Desktop app · 🟡 active
+Open-source desktop AI agent for business automation — lead generation, knowledge library RAG, outreach, and scheduled workflows. Runs on Windowws, macOS, Linux.
+
+- **Edge:** Local-first: SQLite + sqlite-vec storage, permission-gated tools, skills/plugins/MCP servers. Cron seduling, subagents, Puppeteer browser automation for lead-gen/outreach loops.
+
 ---
 
 ## Agent Sandboxes & Browser Control
