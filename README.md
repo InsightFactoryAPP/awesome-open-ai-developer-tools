@@ -1122,3 +1122,8 @@ The bar for inclusion:
 [![CC0](https://licensebuttons.net/p/zero/1.0/88x31.png)](LICENSE)
 
 To the extent possible under law, contributors have waived all copyright and related rights to this work.
+
+
+## MCP & Agent Quality Tools
+
+- [mcpdoctor](https://github.com/xka0085-byte/mcp-doctor) — Read-only MCP tool-schema checker and x402 HTTP 402 endpoint inspector with GitHub Action CI support. [Docs](https://xka0085-byte.github.io/mcp-doctor/)
