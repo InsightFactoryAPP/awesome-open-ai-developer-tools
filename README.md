@@ -284,6 +284,15 @@ Self-hosted platform to run a *team* of specialized AI agents that collaborate, 
 - **Backends:** Any OpenAI-compatible API, Ollama
 - **Edge:** Multiple agents delegate to each other and share memory across months; a built-in web UI plus Telegram, Slack, Discord, and Matrix channels. Ships as a single container (Bun + SQLite), so the whole platform runs on modest hardware.
 
+### [Tale](https://github.com/tale-project/tale)
+`TypeScript` · `MIT` · Web app · 🟡 active
+
+Self-hostable project workspace for people and AI agents to delegate tasks and review reports and delivered files together.
+
+- **Replaces:** Hosted agent workspaces for team task delegation and review
+- **Backends:** Supported coding runtimes including Claude Code, Codex, and OpenCode, with separately configured compatible provider credentials
+- **Edge:** Each project agent reuses a persistent sandbox workspace across tasks, while task attachments and collected deliverables stay attached to the work. Task context and acceptance criteria guide execution, and completed work goes to a designated reviewer.
+
 ### [Hermes Agent](https://github.com/NousResearch/hermes-agent)
 `Python` · `MIT` · 🟡 active
 
