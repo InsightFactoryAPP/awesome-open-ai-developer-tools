@@ -117,6 +117,15 @@ Extensible autonomous agent from Block, now governed by the Linux Foundation. In
 - **Backends:** Any provider, plus first-class MCP extension support
 - **Edge:** More autonomous than aider — plans and iterates with less hand-holding. Vendor-neutral governance under the Linux Foundation means no rug-pull risk, which matters for tooling you standardize a team on.
 
+### [molt](https://github.com/solvyxtech/molt)
+`TypeScript` · `Apache-2.0` · CLI + desktop · 🟡 active
+
+Coding agent that won't say done on a false claim — verification on disk, receipts for accepts and refusals.
+
+- **Replaces:** Cursor agent mode, Claude Code for teams that need a done-bar outside the model
+- **Backends:** OpenAI-compatible endpoints (Ollama, vLLM, etc.) or Anthropic
+- **Edge:** Acceptance lives in `.molt/done.yml` against real files; accepts and refusals both write hash-chained receipts (`molt verify`). Install via `npm i -g @solvyx/molt` / `npx @solvyx/molt`.
+
 ### [BitFun](https://github.com/GCWing/BitFun)
 `Rust + TypeScript` · `MIT` · Desktop + CLI · 🟡 active
 
@@ -133,7 +142,16 @@ Local-first desktop AI workforce where a Commander plans work and coordinates bu
 
 - **Replaces:** Cursor agent mode, cloud-hosted agent orchestrators
 - **Backends:** Claude, OpenAI, Gemini, DeepSeek, Kimi, GLM, Qwen, MiniMax, Doubao, and compatible local model endpoints
-- **Edge:** Orkas runs the orchestration layer on the user's machine: conversations, files, agent configuration, and model keys stay local, while the Commander can dispatch Claude Code, Codex, OpenCode, and Cline as local subprocesses alongside built-in agents.
+- **Edge:** Orkas runs the orchestration layer on the user's machine: conversations, files, agent configuration, and model keys stay local, while the Commander can dispatch Claude Code, Codex, OpenCode, OpenClaw, and Hermes as local subprocesses alongside built-in agents.
+
+### [MulmoTerminal](https://github.com/receptron/mulmoterminal)
+`TypeScript` · `MIT` · Browser / CLI · 🟢 active
+
+Browser grid of live Claude Code and Codex sessions, one real PTY per cell, started with a single `npx` command. Each cell is colour-coded working / needs-you / done, so a session blocked on a permission prompt is distinguishable from one still thinking without opening it.
+
+- **Replaces:** tmux panes plus a notifier script, hand-rolled session dashboards
+- **Backends:** the `claude` and `codex` CLIs you already installed and pay for; Grok and Antigravity also supported
+- **Edge:** session state comes from the agent CLI's own hooks (`PreToolUse` / `Stop` / `Notification`), not from parsing scrollback, so "working" and "waiting on you" are different states rather than both being "output stopped". tmux backs the sessions, so they survive a server restart or a reboot; each cell can hold its own git worktree with commit, push and PR from the grid.
 
 ### [ordewell](https://github.com/ordewell/ordewell)
 `Rust` · `Apache-2.0` · CLI / TUI · 🟡 active
@@ -143,6 +161,15 @@ Plan-first CLI/TUI orchestrator that converts a single goal into an ordered, edi
 - **Replaces:** Manual task decomposition and multi-agent CLI scripting
 - **Backends:** Claude Code, Codex, OpenCode
 - **Edge:** Features a read-only planner that generates explicit step-by-step agent plans before execution, with per-task runner, model, and mode assignment.
+
+### [LoopTroop](https://github.com/looptroop-ai/LoopTroop)
+`TypeScript` · `MIT` · Desktop + CLI · 🟡 active
+
+Local orchestrator that turns complex coding tickets into verified pull requests using multi-model planning councils and isolated git worktrees.
+
+- **Replaces:** Devin, Cursor agent mode, cloud-hosted agent orchestrators
+- **Backends:** Anthropic, OpenAI, Google Gemini, DeepSeek, OpenRouter, and local models via OpenCode
+- **Edge:** LoopTroop runs an LLM council where distinct models draft and vote on task plans before implementation starts. Each task executes inside an isolated git worktree with bounded retry loops, so failed runs roll back without touching the primary checkout. Human approval gates pause execution before irreversible terminal commands or branch updates run.
 
 ### [Atomic Agent](https://github.com/AtomicBot-ai/atomic-agent)
 `TypeScript` · `MIT` · CLI + TUI · 🟠 experimental
@@ -176,7 +203,6 @@ Describe a project in natural language; it writes and iterates on the whole code
 
 - **Edge:** Best for greenfield scaffolding rather than surgical edits on an existing repo.
 
-
 ### [Orbi](https://github.com/orbi-build/orbi)
 `Python` · `AGPL-3.0` · Self-hosted runner + GitHub · 🟢 stable
 
@@ -186,8 +212,25 @@ Works from GitHub issues: label one `ai-ready` and it implements the change in a
 - **Backends:** Any OpenAI-compatible model, or a Codex subscription
 - **Edge:** Review is a gate, not a suggestion: only the exact head the reviewer approved is merged, and Orbi then cuts the tagged release. Ops tickets (deploys, investigations) post their real commands and output on the issue.
 
----
+### [Ivy Tendril](https://github.com/Ivy-Interactive/Ivy-Tendril)
+`TypeScript` · `MIT` · Desktop + Web · 🟡 active
 
+Agentic software factory that manages parallel Git worktrees with programmatic verifications and interactive review loops.
+
+- **Replaces:** Manual git worktree management, multi-agent branch orchestration
+- **Backends:** Anthropic, OpenAI, local models
+- **Edge:** Automates parallel Git worktree isolation with built-in programmatic verification gates and interactive human-in-the-loop review loops before merging.
+
+### [YYLO](https://github.com/yylo-dev/yylo)
+`Python + TypeScript` · `MIT` · CLI · 🟡 active
+
+Command-line orchestrator for coding agents, repeatable workflows, and receipt-backed repository changes.
+
+- **Replaces:** Manual multi-agent workflow scripting, cloud-hosted agent orchestration
+- **Backends:** Drives Pi and Codex subagents through per-subagent aliases
+- **Edge:** `task start` freezes the protected target SHA and creates a dedicated branch/worktree per task; a merge queue then owns risk-based review — low risk merges with no semantic reviewer,
+
+---
 ## Prompt-to-App Builders
 
 Prompt in, deployed full-stack app out.
@@ -249,6 +292,15 @@ Self-hosted platform to run a *team* of specialized AI agents that collaborate, 
 - **Replaces:** ChatGPT Team, Claude Desktop, hosted agent platforms
 - **Backends:** Any OpenAI-compatible API, Ollama
 - **Edge:** Multiple agents delegate to each other and share memory across months; a built-in web UI plus Telegram, Slack, Discord, and Matrix channels. Ships as a single container (Bun + SQLite), so the whole platform runs on modest hardware.
+
+### [Tale](https://github.com/tale-project/tale)
+`TypeScript` · `MIT` · Web app · 🟡 active
+
+Self-hostable project workspace for people and AI agents to delegate tasks and review reports and delivered files together.
+
+- **Replaces:** Hosted agent workspaces for team task delegation and review
+- **Backends:** Supported coding runtimes including Claude Code, Codex, and OpenCode, with separately configured compatible provider credentials
+- **Edge:** Each project agent reuses a persistent sandbox workspace across tasks, while task attachments and collected deliverables stay attached to the work. Task context and acceptance criteria guide execution, and completed work goes to a designated reviewer.
 
 ### [Hermes Agent](https://github.com/NousResearch/hermes-agent)
 `Python` · `MIT` · 🟡 active
@@ -314,6 +366,24 @@ Self-hosted personal AI that searches your notes, documents, and the web; reacha
 
 - **Replaces:** ChatGPT with memory, Notion AI
 - **Edge:** Indexes *your* corpus locally. Runs fully offline with local models.
+
+### [5dive](https://github.com/5dive-ai/5dive)
+`Shell` · `MIT` · Self-hosted / CLI · 🟡 active
+
+Runs a team of AI agents on a server you own; you message them like coworkers on Telegram or Discord.
+
+- **Replaces:** Devin, Lindy
+- **Backends:** Claude Code, Codex and other official agent CLIs with your own subscription or API key, any model through OpenRouter, or a local server (vLLM, llama.cpp, an Ollama shim)
+- **Edge:** No framework or broker: the orchestrator is bash, and each agent is a Linux user running a systemd service with SQLite for state and journald for logs, so a single-agent setup fits on a 1 GB VM. Agents hand each other work through an org chart and a shared backlog.
+
+### [aiFetchly](https://github.com/robertzengcn/aiFetchly)
+`TypeScript` · `Apache-2.0` · Desktop app · 🟡 active
+
+Open-source desktop AI agent for business automation — lead generation, knowledge library RAG, outreach, and scheduled workflows. Runs on Windows, macOS, Linux.
+
+- **Replaces:** Cloud-hosted business automation and lead-generation agents
+- **Edge:** Local-first: SQLite + sqlite-vec storage, permission-gated tools, skills/plugins/MCP servers. Cron scheduling, subagents, Puppeteer browser automation for lead-gen/outreach loops.
+
 
 ---
 
@@ -482,6 +552,13 @@ Local MCP bridge that lets an existing ChatGPT conversation operate the Mac wher
 
 - **Edge:** ChatGPT stays the reasoning layer and the bridge makes no model calls. Unlike a narrow filesystem or shell MCP, it is deliberately built for developer-machine parity and real interactive terminals. **Security tradeoff:** it is intentionally not sandboxed and runs with the macOS user's effective permissions, so it is only appropriate when that level of machine access is explicitly wanted.
 
+### [Screenpipe](https://github.com/screenpipe/screenpipe)
+`Rust + TypeScript` · `Screenpipe Commercial License` (source-available, not OSI) · Desktop + MCP + local API · 🟡 active
+
+Captures screen text and audio history so agents can retrieve context from past debugging sessions, documentation, and meetings.
+
+- **Edge:** Searches captured activity across apps with time and app filters, rather than relying on manually pasted context. MCP requires a running Screenpipe recorder and local API key; desktop Settings > Connections configures the connection. Raw history stays local by default, while configured cloud AI, transcription, sync, and integrations can send context off-device.
+
 ### [MCP Inspector](https://github.com/modelcontextprotocol/inspector)
 `TypeScript` · `MIT` · 🟡 active
 
@@ -504,6 +581,16 @@ Local semantic code index with an MCP server on top — search and navigate a co
 - **Replaces:** the codebase indexing inside Cursor or Sourcegraph Cody
 - **Backends:** local embeddings via fastembed, or a hosted provider if you'd rather offload it
 - **Edge:** runs entirely locally, and embeddings are your choice. **Known weakness:** first index on a large repo is slow, and semantic search is genuinely bad at structural questions — "find every implementation of this trait" wants a structural index, not embeddings, so you need separate structural tools and have to know which kind of question you're asking before you search. Early-stage; treat it accordingly.
+
+
+### [ContextStream](https://github.com/contextstream/mcp-server)
+`Rust` · `MIT` · MCP · 🟡 active
+
+Shared project context and semantic code search over MCP for AI coding agents.
+
+- **Replaces:** single-editor indexes and lost per-session context
+- **Backends:** local OSS server (`@contextstream/mcp-server`) or hosted remote MCP (`https://mcp.contextstream.io/mcp`)
+- **Edge:** shared project context across MCP clients not locked to one editor
 
 ---
 
@@ -657,6 +744,14 @@ Modern chat framework with a plugin and agent-market ecosystem.
 All-in-one desktop and Docker app: chat with your documents, with agents and multi-user workspaces built in.
 
 - **Edge:** Batteries-included RAG — embedder, vector DB, and UI ship together. Fastest path from "I have PDFs" to "I can ask them questions."
+
+### [Artifact Relay](https://github.com/eloktev/artifact-relay)
+`Python + HTML` · `MIT` · `Server + Hermes plugin` · 🟢 stable
+
+Self-hosted delivery surface for publishing long Markdown and standalone HTML results from AI agents to private, mobile-friendly pages.
+
+- **Replaces:** private pastebins and chat-bound artifact viewers
+- **Edge:** Publisher and viewer credentials are separate trust boundaries. Markdown is sanitized, standalone HTML runs in a sandboxed iframe, and optional share links can be scoped and revoked without exposing the publishing credential.
 
 ### [ThoughtDAG](https://github.com/chenxiachan/thoughtdag)
 `TypeScript` · `MIT` · Web · 🟠 experimental
@@ -938,6 +1033,13 @@ Dependency-free browser calculator for estimating AI model API costs from reques
 
 - **Edge:** Runs locally without API keys, accounts, cookies, analytics, or server-side processing. The tested formula separates cached from uncached input and keeps provider-specific pricing assumptions visible so estimates can be reviewed before a real bill is incurred.
 
+### [OrcaReplay](https://github.com/Continuum-AI-Corp/OrcaReplay)
+`TypeScript` · `Apache-2.0` · 🟢 stable
+
+Records a coding agent's exchange with its model provider and replays the run offline with no model called.
+
+- **Edge:** The other tools here tell you what happened; this one runs it again. Replay serves the recorded turns with no provider contacted and nothing spent, and `--from N --model M` replays a prefix then continues on a different model, so the model is the only variable. Captures at the HTTP boundary rather than through instrumentation — aider, OpenHands and goose from the sections above are covered, along with Claude Code and the Vercel AI SDK. The trace format is specified separately under CC BY 4.0, so a recording outlives the CLI.
+
 ---
 
 ## Speech, Vision & Multimodal
@@ -1030,7 +1132,7 @@ Visual framework for building multi-agent and RAG applications.
 |---|---|
 | GitHub Copilot | [Continue](https://github.com/continuedev/continue), [Tabby](https://github.com/TabbyML/tabby), [aider](https://github.com/Aider-AI/aider) |
 | Cursor / Windsurf | [Cline](https://github.com/cline/cline), [OpenCode](https://github.com/sst/opencode), [Continue](https://github.com/continuedev/continue), [BitFun](https://github.com/GCWing/BitFun), [Atomic Agent](https://github.com/AtomicBot-ai/atomic-agent) |
-| Devin | [OpenHands](https://github.com/All-Hands-AI/OpenHands), [Goose](https://github.com/block/goose), [SWE-agent](https://github.com/SWE-agent/SWE-agent) |
+| Devin | [OpenHands](https://github.com/All-Hands-AI/OpenHands), [Goose](https://github.com/block/goose), [SWE-agent](https://github.com/SWE-agent/SWE-agent), [LoopTroop](https://github.com/looptroop-ai/LoopTroop), [5dive](https://github.com/5dive-ai/5dive) |
 | Claude Design / Figma Make | [Open Design](https://github.com/nexu-io/open-design) |
 | ChatGPT desktop / Copilot assistant | [OpenClaw](https://github.com/openclaw/openclaw), [Hermes Agent](https://github.com/NousResearch/hermes-agent) |
 | Bolt.new / v0 / Lovable | [bolt.diy](https://github.com/stackblitz-labs/bolt.diy), [OpenUI](https://github.com/wandb/openui), [Dyad](https://github.com/dyad-sh/dyad) |
