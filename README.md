@@ -176,9 +176,15 @@ Describe a project in natural language; it writes and iterates on the whole code
 
 - **Edge:** Best for greenfield scaffolding rather than surgical edits on an existing repo.
 
----
+### [Ivy Tendril](https://github.com/Ivy-Interactive/Ivy-Tendril)
+`TypeScript` · `MIT` · Desktop + Web · 🟡 active
 
-- [Ivy Tendril](https://github.com/Ivy-Interactive/Ivy-Tendril): Open-source agentic software factory with an amazing UI that handles parallel Git worktrees for you, complete with programmatic verifications and fast review loops
+Agentic software factory that manages parallel Git worktrees with programmatic verifications and interactive review loops.
+
+- **Replaces:** Manual git worktree management, multi-agent branch orchestration
+- **Backends:** Anthropic, OpenAI, local models
+- **Edge:** Automates parallel Git worktree isolation with built-in programmatic verification gates and interactive human-in-the-loop review loops before merging.
+---
 ## Prompt-to-App Builders
 
 Prompt in, deployed full-stack app out.
