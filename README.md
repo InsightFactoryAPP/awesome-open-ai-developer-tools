@@ -788,6 +788,15 @@ Local-first workspace combining notes, tasks, and AI chat in your browser on you
 - **Replaces:** Notion AI, Obsidian + Copilot plugin
 - **Edge:** Plain markdown files on disk — no accounts, no cloud, no database. The AI reads and edits your actual workspace files. Supports Ollama for fully local inference.
 
+### [Aleph](https://github.com/josuecuguy1307/Aleph)
+`TypeScript` · `Apache-2.0` · `macOS / Apple silicon desktop` · 🟡 active
+
+An AI workspace for bringing model providers, tools, and files together across focused workspaces and reusable agents.
+
+- **Replaces:** ChatGPT Desktop or Claude Desktop for users who want to configure their own agents, tools, and workflows.
+- **Backends:** User-configured model API providers and installed, authenticated CLI providers such as Claude Code and Codex; availability depends on setup.
+- **Edge:** The Workshop lets users compose agents, equip them with tools, and arrange reusable workflows visually, making the harness inspectable and changeable.
+
 ---
 
 ## Vector Databases
