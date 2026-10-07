@@ -514,6 +514,14 @@ Shared project context and semantic code search over MCP for AI coding agents.
 - **Backends:** local OSS server (`@contextstream/mcp-server`) or hosted remote MCP (`https://mcp.contextstream.io/mcp`)
 - **Edge:** shared project context across MCP clients not locked to one editor
 
+### [mcpdoctor](https://github.com/xka0085-byte/mcp-doctor)
+`JavaScript` · `MIT` · CLI · 🟠 experimental
+
+Read-only preflight inspector and linter for MCP tool schemas and x402 HTTP payment-required endpoints with GitHub Actions CI support.
+
+- **Replaces:** Manual curl inspection, ad-hoc JSON schema validation for MCP endpoints
+- **Edge:** Runs zero-dependency preflight checks without credentials, verifying discovery manifests (`/.well-known/mcp/server.json`) and SHA-256 body digests before clients or payment buyers connect.
+
 ---
 
 ## Local Inference Engines
@@ -1122,8 +1130,3 @@ The bar for inclusion:
 [![CC0](https://licensebuttons.net/p/zero/1.0/88x31.png)](LICENSE)
 
 To the extent possible under law, contributors have waived all copyright and related rights to this work.
-
-
-## MCP & Agent Quality Tools
-
-- [mcpdoctor](https://github.com/xka0085-byte/mcp-doctor) — Read-only MCP tool-schema checker and x402 HTTP 402 endpoint inspector with GitHub Action CI support. [Docs](https://xka0085-byte.github.io/mcp-doctor/)
