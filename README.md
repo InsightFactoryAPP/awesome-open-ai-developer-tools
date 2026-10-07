@@ -203,6 +203,15 @@ Describe a project in natural language; it writes and iterates on the whole code
 
 - **Edge:** Best for greenfield scaffolding rather than surgical edits on an existing repo.
 
+### [Orbi](https://github.com/orbi-build/orbi)
+`Python` · `AGPL-3.0` · Self-hosted runner + GitHub · 🟢 stable
+
+Works from GitHub issues: label one `ai-ready` and it implements the change in an isolated worktree, opens a PR, and a separate review session checks the diff against the issue's acceptance criteria before anything merges.
+
+- **Replaces:** Devin, GitHub Copilot coding agent
+- **Backends:** Any OpenAI-compatible model, or a Codex subscription
+- **Edge:** Review is a gate, not a suggestion: only the exact head the reviewer approved is merged, and Orbi then cuts the tagged release. Ops tickets (deploys, investigations) post their real commands and output on the issue.
+
 ### [Ivy Tendril](https://github.com/Ivy-Interactive/Ivy-Tendril)
 `TypeScript` · `MIT` · Desktop + Web · 🟡 active
 
