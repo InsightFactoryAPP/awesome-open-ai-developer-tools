@@ -133,7 +133,7 @@ Local-first desktop AI workforce where a Commander plans work and coordinates bu
 
 - **Replaces:** Cursor agent mode, cloud-hosted agent orchestrators
 - **Backends:** Claude, OpenAI, Gemini, DeepSeek, Kimi, GLM, Qwen, MiniMax, Doubao, and compatible local model endpoints
-- **Edge:** Orkas runs the orchestration layer on the user's machine: conversations, files, agent configuration, and model keys stay local, while the Commander can dispatch Claude Code, Codex, OpenCode, and Cline as local subprocesses alongside built-in agents.
+- **Edge:** Orkas runs the orchestration layer on the user's machine: conversations, files, agent configuration, and model keys stay local, while the Commander can dispatch Claude Code, Codex, OpenCode, OpenClaw, and Hermes as local subprocesses alongside built-in agents.
 
 ### [ordewell](https://github.com/ordewell/ordewell)
 `Rust` · `Apache-2.0` · CLI / TUI · 🟡 active
@@ -143,6 +143,15 @@ Plan-first CLI/TUI orchestrator that converts a single goal into an ordered, edi
 - **Replaces:** Manual task decomposition and multi-agent CLI scripting
 - **Backends:** Claude Code, Codex, OpenCode
 - **Edge:** Features a read-only planner that generates explicit step-by-step agent plans before execution, with per-task runner, model, and mode assignment.
+
+### [LoopTroop](https://github.com/looptroop-ai/LoopTroop)
+`TypeScript` · `MIT` · Desktop + CLI · 🟡 active
+
+Local orchestrator that turns complex coding tickets into verified pull requests using multi-model planning councils and isolated git worktrees.
+
+- **Replaces:** Devin, Cursor agent mode, cloud-hosted agent orchestrators
+- **Backends:** Anthropic, OpenAI, Google Gemini, DeepSeek, OpenRouter, and local models via OpenCode
+- **Edge:** LoopTroop runs an LLM council where distinct models draft and vote on task plans before implementation starts. Each task executes inside an isolated git worktree with bounded retry loops, so failed runs roll back without touching the primary checkout. Human approval gates pause execution before irreversible terminal commands or branch updates run.
 
 ### [Atomic Agent](https://github.com/AtomicBot-ai/atomic-agent)
 `TypeScript` · `MIT` · CLI + TUI · 🟠 experimental
@@ -184,6 +193,16 @@ Agentic software factory that manages parallel Git worktrees with programmatic v
 - **Replaces:** Manual git worktree management, multi-agent branch orchestration
 - **Backends:** Anthropic, OpenAI, local models
 - **Edge:** Automates parallel Git worktree isolation with built-in programmatic verification gates and interactive human-in-the-loop review loops before merging.
+
+### [YYLO](https://github.com/yylo-dev/yylo)
+`Python + TypeScript` · `MIT` · CLI · 🟡 active
+
+Command-line orchestrator for coding agents, repeatable workflows, and receipt-backed repository changes.
+
+- **Replaces:** Manual multi-agent workflow scripting, cloud-hosted agent orchestration
+- **Backends:** Drives Pi and Codex subagents through per-subagent aliases
+- **Edge:** `task start` freezes the protected target SHA and creates a dedicated branch/worktree per task; a merge queue then owns risk-based review — low risk merges with no semantic reviewer,
+
 ---
 ## Prompt-to-App Builders
 
@@ -502,6 +521,16 @@ Local semantic code index with an MCP server on top — search and navigate a co
 - **Backends:** local embeddings via fastembed, or a hosted provider if you'd rather offload it
 - **Edge:** runs entirely locally, and embeddings are your choice. **Known weakness:** first index on a large repo is slow, and semantic search is genuinely bad at structural questions — "find every implementation of this trait" wants a structural index, not embeddings, so you need separate structural tools and have to know which kind of question you're asking before you search. Early-stage; treat it accordingly.
 
+
+### [ContextStream](https://github.com/contextstream/mcp-server)
+`Rust` · `MIT` · MCP · 🟡 active
+
+Shared project context and semantic code search over MCP for AI coding agents.
+
+- **Replaces:** single-editor indexes and lost per-session context
+- **Backends:** local OSS server (`@contextstream/mcp-server`) or hosted remote MCP (`https://mcp.contextstream.io/mcp`)
+- **Edge:** shared project context across MCP clients not locked to one editor
+
 ---
 
 ## Local Inference Engines
@@ -654,6 +683,14 @@ Modern chat framework with a plugin and agent-market ecosystem.
 All-in-one desktop and Docker app: chat with your documents, with agents and multi-user workspaces built in.
 
 - **Edge:** Batteries-included RAG — embedder, vector DB, and UI ship together. Fastest path from "I have PDFs" to "I can ask them questions."
+
+### [Artifact Relay](https://github.com/eloktev/artifact-relay)
+`Python + HTML` · `MIT` · `Server + Hermes plugin` · 🟢 stable
+
+Self-hosted delivery surface for publishing long Markdown and standalone HTML results from AI agents to private, mobile-friendly pages.
+
+- **Replaces:** private pastebins and chat-bound artifact viewers
+- **Edge:** Publisher and viewer credentials are separate trust boundaries. Markdown is sanitized, standalone HTML runs in a sandboxed iframe, and optional share links can be scoped and revoked without exposing the publishing credential.
 
 ### [ThoughtDAG](https://github.com/chenxiachan/thoughtdag)
 `TypeScript` · `MIT` · Web · 🟠 experimental
@@ -1027,7 +1064,7 @@ Visual framework for building multi-agent and RAG applications.
 |---|---|
 | GitHub Copilot | [Continue](https://github.com/continuedev/continue), [Tabby](https://github.com/TabbyML/tabby), [aider](https://github.com/Aider-AI/aider) |
 | Cursor / Windsurf | [Cline](https://github.com/cline/cline), [OpenCode](https://github.com/sst/opencode), [Continue](https://github.com/continuedev/continue), [BitFun](https://github.com/GCWing/BitFun), [Atomic Agent](https://github.com/AtomicBot-ai/atomic-agent) |
-| Devin | [OpenHands](https://github.com/All-Hands-AI/OpenHands), [Goose](https://github.com/block/goose), [SWE-agent](https://github.com/SWE-agent/SWE-agent) |
+| Devin | [OpenHands](https://github.com/All-Hands-AI/OpenHands), [Goose](https://github.com/block/goose), [SWE-agent](https://github.com/SWE-agent/SWE-agent), [LoopTroop](https://github.com/looptroop-ai/LoopTroop) |
 | Claude Design / Figma Make | [Open Design](https://github.com/nexu-io/open-design) |
 | ChatGPT desktop / Copilot assistant | [OpenClaw](https://github.com/openclaw/openclaw), [Hermes Agent](https://github.com/NousResearch/hermes-agent) |
 | Bolt.new / v0 / Lovable | [bolt.diy](https://github.com/stackblitz-labs/bolt.diy), [OpenUI](https://github.com/wandb/openui), [Dyad](https://github.com/dyad-sh/dyad) |
