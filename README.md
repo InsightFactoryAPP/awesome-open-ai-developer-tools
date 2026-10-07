@@ -507,6 +507,13 @@ Local MCP bridge that lets an existing ChatGPT conversation operate the Mac wher
 
 - **Edge:** ChatGPT stays the reasoning layer and the bridge makes no model calls. Unlike a narrow filesystem or shell MCP, it is deliberately built for developer-machine parity and real interactive terminals. **Security tradeoff:** it is intentionally not sandboxed and runs with the macOS user's effective permissions, so it is only appropriate when that level of machine access is explicitly wanted.
 
+### [Screenpipe](https://github.com/screenpipe/screenpipe)
+`Rust + TypeScript` · `Screenpipe Commercial License` (source-available, not OSI) · Desktop + MCP + local API · 🟡 active
+
+Captures screen text and audio history so agents can retrieve context from past debugging sessions, documentation, and meetings.
+
+- **Edge:** Searches captured activity across apps with time and app filters, rather than relying on manually pasted context. MCP requires a running Screenpipe recorder and local API key; desktop Settings > Connections configures the connection. Raw history stays local by default, while configured cloud AI, transcription, sync, and integrations can send context off-device.
+
 ### [MCP Inspector](https://github.com/modelcontextprotocol/inspector)
 `TypeScript` · `MIT` · 🟡 active
 
